@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:my_gold_dashboard/core/styles/colors.dart';
+import 'package:my_gold_dashboard/core/styles/text_styles.dart';
 
 class StatCard extends StatelessWidget {
   final String title;
@@ -31,14 +32,26 @@ class StatCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 12),
-              Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(
+                title,
+                style: AppTextStyles.bodyS(
+                  context,
+                ).copyWith(fontWeight: FontWeight.w600),
+              ),
               const SizedBox(height: 4),
               Text(
                 value,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: AppTextStyles.bodyM(
+                  context,
+                ).copyWith(fontWeight: FontWeight.w800),
               ),
               const SizedBox(height: 4),
-              Text(percentageChange, style: TextStyle(color: changeColor)),
+              Text(
+                percentageChange,
+                style: AppTextStyles.bodyXxs(
+                  context,
+                ).copyWith(color: changeColor),
+              ),
             ],
           ),
           CircleAvatar(

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
+
 class CustomTextField extends StatefulWidget {
   final String hintText;
   final bool isPassword;
@@ -96,7 +97,7 @@ class CustomTextFieldState extends State<CustomTextField> {
             : InputBorder.none;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ConstrainedBox(
           constraints: BoxConstraints(
@@ -105,7 +106,6 @@ class CustomTextFieldState extends State<CustomTextField> {
             maxWidth: widget.width,
           ),
           child: TextFormField(
-            
             controller: _controller,
             onChanged: (value) {
               if (widget.onChanged != null) {
@@ -129,7 +129,6 @@ class CustomTextFieldState extends State<CustomTextField> {
                       : AppColors.greyScaleAlmostBlack,
             ),
             decoration: InputDecoration(
-              hintTextDirection: TextDirection.rtl,
               fillColor:
                   widget.onTab != null
                       ? AppColors.greyScaleDarkGrey

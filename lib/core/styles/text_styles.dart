@@ -5,7 +5,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 54),
       fontWeight: FontWeight.w700,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 2.04,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -16,7 +16,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 42),
       fontWeight: FontWeight.w700,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 2.62,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -27,7 +27,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 32),
       fontWeight: FontWeight.w700,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 3.44,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -38,7 +38,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 5.83,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -49,7 +49,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontWeight: FontWeight.w700,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 7,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -60,7 +60,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 7.78,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -71,7 +71,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 8.75,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -82,7 +82,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 10,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -93,7 +93,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 7.78,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -104,7 +104,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w500,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 8.75,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -115,7 +115,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 10,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -124,9 +124,9 @@ abstract class AppTextStyles {
 
   static TextStyle bodyXxs(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 8),
+      fontSize: getResponsiveFontSize(context, fontSize: 10),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 17.5,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -137,7 +137,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 7,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -148,7 +148,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 7,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -159,7 +159,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 8.75,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -170,7 +170,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontWeight: FontWeight.w700,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 10,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,
@@ -181,7 +181,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w400,
-      fontFamily:"PlusJakartaSans",
+      fontFamily: "PlusJakartaSans",
       // height: 8.75,
       fontStyle: FontStyle.normal,
       decoration: TextDecoration.none,

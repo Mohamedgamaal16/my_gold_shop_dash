@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_gold_dashboard/Features/auth/login/screen/login_screen.dart';
 import 'package:my_gold_dashboard/Features/auth/otp/otp_screen.dart';
-import 'package:my_gold_dashboard/Features/home/screens/home_screen.dart';
+import 'package:my_gold_dashboard/Features/banner/screen/banner_screen.dart';
 import 'package:my_gold_dashboard/Features/home/screens/home_screen_body.dart';
+import 'package:my_gold_dashboard/Features/order_management/screen/order_managment_screen.dart';
+import 'package:my_gold_dashboard/Features/settings/screen/serrings_screen.dart';
 import 'package:my_gold_dashboard/Features/sidebar/screen/sidebar_screen.dart';
 import 'package:my_gold_dashboard/core/routes/routes.dart';
 
@@ -54,7 +56,7 @@ final GoRouter router = GoRouter(
               name: "Order Management",
               path: Routes.orderManagement,
               builder:
-                  (context, state) => const Text("Order Management Screen"),
+                  (context, state) => const OrderManagmentScreen(),
             ),
             // Include original order routes
             GoRoute(
@@ -169,7 +171,7 @@ final GoRouter router = GoRouter(
               name: "Banner Management",
               path: Routes.bannerManagement,
               builder:
-                  (context, state) => const Text("Banner Management Screen"),
+                  (context, state) => const BannerScreen(),
             ),
             GoRoute(
               name: "Add Banner",
@@ -348,7 +350,7 @@ final GoRouter router = GoRouter(
             GoRoute(
               name: "Settings",
               path: Routes.settings,
-              builder: (context, state) => const Text("Settings Screen"),
+              builder: (context, state) => const SystemSettingsScreen(),
             ),
             GoRoute(
               name: "User Settings",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
+
 class CustomButton extends StatefulWidget {
   const CustomButton({
     super.key,
@@ -55,7 +56,7 @@ class _CustomButtonState extends State<CustomButton> {
         minimumSize: Size(widget.width, widget.height),
         maximumSize: Size(widget.width, widget.height),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6),
+          // borderRadius: BorderRadius.circular(6),
           side:
               widget.isPrimary
                   ? BorderSide.none
@@ -72,7 +73,6 @@ class _CustomButtonState extends State<CustomButton> {
       return Container(
         decoration: BoxDecoration(
           gradient: AppColors.texturesButtonTexture,
-
           borderRadius: BorderRadius.circular(6),
         ),
         child: button,

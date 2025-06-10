@@ -9,6 +9,8 @@ import 'package:my_gold_dashboard/Features/settings/screen/serrings_screen.dart'
 import 'package:my_gold_dashboard/Features/sidebar/screen/sidebar_screen.dart';
 import 'package:my_gold_dashboard/core/routes/routes.dart';
 
+import '../../Features/payment_management/presantation/screen/payment_management.dart';
+
 final GoRouter router = GoRouter(
   initialLocation: Routes.login,
   // Routes.homeScreen,
@@ -226,7 +228,8 @@ final GoRouter router = GoRouter(
               name: "Payment Management",
               path: Routes.paymentManagement,
               builder:
-                  (context, state) => const Text("Payment Management Screen"),
+                  (context, state) =>  PaymentManagementScreen(),
+                  //const Text("Payment Management Screen"),
             ),
             GoRoute(
               name: "Payment Details",

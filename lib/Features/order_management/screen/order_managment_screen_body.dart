@@ -8,14 +8,12 @@ class OrderManagmentScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return Column(
       children: [
         Row(
           children: [
             Text("Order Management", style: AppTextStyles.heading3(context)),
             Spacer(),
-
             CustomButton(
               onPressed: () {},
               labelName: "Old Order",
@@ -27,7 +25,6 @@ class OrderManagmentScreenBody extends StatelessWidget {
             CustomButton(
               onPressed: () {},
               height: 50,
-
               labelName: "Active Order",
               width: MediaQuery.sizeOf(context).width * 0.1,
             ),

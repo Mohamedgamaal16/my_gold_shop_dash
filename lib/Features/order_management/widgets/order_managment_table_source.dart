@@ -156,20 +156,3 @@ class OrdersDataSource extends DataTableSource {
   @override
   int get selectedRowCount => 0;
 }
-
-
-
-// this is how i call it create model and provide it 
-// GenericDataTable(
-//                               columns: const [
-//                                 'الاسم',
-//                                 'رقم الهاتف',
-//                                 'نوع الحساب'
-//                               ],
-//                               source:
-//                                   DeliveryReportsDataSource(context, accounts),
-//                               rowsPerPage: screenWidth < 600
-//                                   ? 5
-//                                   : 8, // Fewer rows on small screens
-//                               width: screenWidth,
-//                             ),

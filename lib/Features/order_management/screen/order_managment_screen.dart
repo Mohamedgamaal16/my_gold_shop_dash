@@ -11,7 +11,10 @@ class OrderManagmentScreen extends StatelessWidget {
     return  Scaffold(
   backgroundColor: AppColors.colorsBackground,
         appBar: buildAppBar(),
-      body: OrderManagmentScreenBody(),
+      body: Padding(
+      padding: const EdgeInsets.all(16),
+        child: OrderManagmentScreenBody(),
+      ),
     );
   }
 }

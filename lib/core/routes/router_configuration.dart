@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_gold_dashboard/Features/auth/login/screen/login_screen.dart';
 import 'package:my_gold_dashboard/Features/auth/otp/otp_screen.dart';
 import 'package:my_gold_dashboard/Features/banner/screen/banner_screen.dart';
-import 'package:my_gold_dashboard/Features/home/screens/home_screen_body.dart';
+import 'package:my_gold_dashboard/Features/home/screens/home_screen.dart';
 import 'package:my_gold_dashboard/Features/order_management/screen/order_managment_screen.dart';
 import 'package:my_gold_dashboard/Features/settings/screen/serrings_screen.dart';
 import 'package:my_gold_dashboard/Features/sidebar/screen/sidebar_screen.dart';
@@ -45,7 +45,7 @@ final GoRouter router = GoRouter(
             GoRoute(
               name: "Dashboard",
               path: Routes.homeScreen,
-              builder: (context, state) => const HomeScreenBody(),
+              builder: (context, state) => const HomeScreen(),
             ),
           ],
         ),
@@ -203,7 +203,7 @@ final GoRouter router = GoRouter(
             ),
             GoRoute(
               name: "Customer Details",
-              path: '${Routes.customerDetails}/:customerId',
+              path: '${Routes.customerManagement}/:customerId',
               builder: (context, state) {
                 final customerId = state.pathParameters['customerId'];
                 return Text("Customer Details: $customerId");

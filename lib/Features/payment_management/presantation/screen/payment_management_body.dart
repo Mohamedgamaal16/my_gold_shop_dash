@@ -103,11 +103,13 @@ class _PaymentManagementBodyState extends State<PaymentManagementBody> {
           ),
           const SizedBox(height: 20),
           SizedBox(
-            height: 450,
+            height: MediaQuery.of(context).size.height * 0.6,
             child: OrdersTableWidget(
               allowedDates: filteredOrderDates,
+              searchQuery: searchQuery,
             ),
           ),
+
         ],
       ),
     );

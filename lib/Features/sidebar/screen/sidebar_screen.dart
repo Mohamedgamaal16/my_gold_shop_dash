@@ -29,7 +29,6 @@ class SideBarScreen extends StatelessWidget {
             body: BlocBuilder<NavigationCubit, NavigationState>(
               builder: (context, state) {
                 final navigationCubit = context.read<NavigationCubit>();
-
                 return Row(
                   children: [
                     SidebarWidget(

@@ -9,6 +9,8 @@ import 'package:my_gold_dashboard/Features/settings/screen/serrings_screen.dart'
 import 'package:my_gold_dashboard/Features/sidebar/screen/sidebar_screen.dart';
 import 'package:my_gold_dashboard/core/routes/routes.dart';
 
+import '../../Features/customer_managemen_details/presentation/customer_management_details.dart';
+import '../../Features/customer_management/presentation/screen/customer_management.dart';
 import '../../Features/payment_management/presantation/screen/payment_management.dart';
 
 final GoRouter router = GoRouter(
@@ -199,14 +201,16 @@ final GoRouter router = GoRouter(
               name: "Customer Management",
               path: Routes.customerManagement,
               builder:
-                  (context, state) => const Text("Customer Management Screen"),
+                  (context, state) =>  CustomerManagement(),
+                  //const Text("Customer Management Screen"),
             ),
             GoRoute(
               name: "Customer Details",
               path: '${Routes.customerDetails}/:customerId',
               builder: (context, state) {
                 final customerId = state.pathParameters['customerId'];
-                return Text("Customer Details: $customerId");
+                return CustomerManagementDetails();
+                //return Text("Customer Details: $customerId");
               },
             ),
             GoRoute(

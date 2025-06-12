@@ -11,13 +11,25 @@ class OrderDataSource extends DataTableSource {
   DataRow getRow(int index) {
     final order = orders[index];
     return DataRow(cells: [
-      DataCell(Text(order.orderId, style: const TextStyle(fontWeight: FontWeight.bold))),
-      DataCell(Text(order.shopName)),
-      DataCell(Text(order.customerName)),
-      DataCell(Text(order.date)),
-      DataCell(Text(order.amount)),
-      DataCell(Text(order.paymentMethod)),
+      _centeredCell(order.orderId),
+      _centeredCell(order.shopName),
+      _centeredCell(order.customerName),
+      _centeredCell(order.date),
+      _centeredCell(order.amount),
+      _centeredCell(order.paymentMethod),
     ]);
+  }
+
+  DataCell _centeredCell(String text) {
+    return DataCell(
+      Center(
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 13),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
   }
 
   @override

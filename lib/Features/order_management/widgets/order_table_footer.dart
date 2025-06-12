@@ -29,9 +29,8 @@ class PaginationFooter extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: const BoxDecoration(
-        border: Border(
-          top: BorderSide(width: 0.5, color: AppColors.colorsText),
-        ),
+              color: AppColors.colorsSurface,
+
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

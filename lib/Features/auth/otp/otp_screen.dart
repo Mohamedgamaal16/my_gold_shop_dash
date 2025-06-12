@@ -32,7 +32,7 @@ class OtpScreen extends StatelessWidget {
               // Login Card
               Center(
                 child: Container(
-                  height: MediaQuery.sizeOf(context).height * 0.45,
+                  height: MediaQuery.sizeOf(context).height * 0.5,
                   width: MediaQuery.sizeOf(context).width * 0.4,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 24,

@@ -89,18 +89,20 @@ class _PaymentPieChartState extends State<PaymentPieChart> {
               ),
             ],
           ),
+Spacer(),
 
           // Pie Chart
-          AspectRatio(
-            aspectRatio: 1.6,
-            child: PieChart(
-              PieChartData(
-                sections: data,
-                sectionsSpace: 2,
-                centerSpaceRadius: 40,
-              ),
-            ),
-          ),
+          SizedBox(
+  height: MediaQuery.of(context).size.height * 0.3, // 30% of screen height
+  child: PieChart(
+    PieChartData(
+      sections: data,
+      sectionsSpace: 2,
+      centerSpaceRadius: 40,
+    ),
+  ),
+),
+Spacer(),
 
           // Legend
           Wrap(

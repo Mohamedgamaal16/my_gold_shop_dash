@@ -6,6 +6,7 @@ import 'package:my_gold_dashboard/core/styles/text_styles.dart';
 
 class SystemAlertsPanel extends StatelessWidget {
   const SystemAlertsPanel({super.key});
+
   @override
   Widget build(BuildContext context) {
     final List<AlertModel> alerts = [
@@ -28,24 +29,27 @@ class SystemAlertsPanel extends StatelessWidget {
         type: AlertType.error,
       ),
     ];
+
     return Container(
-      color: AppColors.colorsSurface,
-      padding: EdgeInsets.all(16),
+      // height: MediaQuery.of(context).size.height * 0.4, // ✅ Responsive outer height (40% of screen)
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(color: AppColors.colorsSurface),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Header
           Text(
             'System Alerts',
-            style: AppTextStyles.bodyL(
-              context,
-            ).copyWith(fontWeight: FontWeight.bold),
+            style: AppTextStyles.bodyL(context).copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          ...alerts.map(
-            (alert) => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: AlertItem(alert: alert),
+
+          // Scrollable alert list
+          Expanded(
+            child: ListView.separated(
+              itemCount: alerts.length,
+              separatorBuilder: (_, __) => const SizedBox(height: 12),
+              itemBuilder: (context, index) => AlertItem(alert: alerts[index]),
             ),
           ),
         ],

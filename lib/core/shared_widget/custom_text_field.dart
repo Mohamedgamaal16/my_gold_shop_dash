@@ -20,7 +20,7 @@ class CustomTextField extends StatefulWidget {
   final void Function(String)? onChanged;
   final void Function()? onTab;
   final int? textFieldLength; // Property for optional length checking
-
+final Color backColor;
   const CustomTextField({
     super.key,
     required this.hintText,
@@ -37,7 +37,7 @@ class CustomTextField extends StatefulWidget {
     this.controller,
     this.onChanged,
     this.onTab,
-    this.textFieldLength,
+    this.textFieldLength,  this.backColor =  AppColors.colorsSurface,
   });
 
   @override
@@ -132,7 +132,7 @@ class CustomTextFieldState extends State<CustomTextField> {
               fillColor:
                   widget.onTab != null
                       ? AppColors.greyScaleDarkGrey
-                      : AppColors.colorsSurface,
+                      :widget. backColor,
               filled: true,
               hintText: widget.hintText,
               floatingLabelBehavior: FloatingLabelBehavior.always,

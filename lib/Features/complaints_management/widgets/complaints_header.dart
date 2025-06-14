@@ -3,7 +3,7 @@ import 'package:my_gold_dashboard/core/shared_widget/custom_text_field.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
 
-class OrdersFilterBar extends StatelessWidget {
+class ComplaintsHeader extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
   final List<String> statuses = [
     'All Status',
@@ -13,27 +13,27 @@ class OrdersFilterBar extends StatelessWidget {
   ];
   final String selectedStatus;
   final ValueChanged<String?> onStatusChanged;
-  final VoidCallback onFilterPressed;
 
-  OrdersFilterBar({
+  ComplaintsHeader({
     super.key,
     required this.selectedStatus,
     required this.onStatusChanged,
-    required this.onFilterPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.colorsSurface,
+      color: AppColors.colorsBackground,
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          // Search Field
+          Text("Complaints Management", style: AppTextStyles.heading4(context).copyWith(fontWeight: FontWeight.bold)),
+          SizedBox(width: 50),
           Expanded(
             flex: 5,
             child: CustomTextField(
-              hintText: 'Search by Order ID or Customer Name',
+              backColor: AppColors.colorsBackground,
+              hintText: "search",
               controller: searchController,
 
               borderRadius: 0,
@@ -50,7 +50,7 @@ class OrdersFilterBar extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey.shade300),
                 borderRadius: BorderRadius.circular(0),
-                color: AppColors.colorsSurface,
+                color: AppColors.colorsBackground,
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
@@ -68,29 +68,6 @@ class OrdersFilterBar extends StatelessWidget {
                           ),
                         );
                       }).toList(),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 12),
-
-          // Filter Button
-          SizedBox(
-            height: 52,
-            child: ElevatedButton.icon(
-              onPressed: onFilterPressed,
-              icon: Icon(Icons.filter_list, color: AppColors.colorsSurface),
-              label: Text(
-                'Filter',
-                style: AppTextStyles.bodyM(
-                  context,
-                ).copyWith(color: AppColors.colorsSurface),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.colorsPrimary2, // Dark green
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
                 ),
               ),
             ),

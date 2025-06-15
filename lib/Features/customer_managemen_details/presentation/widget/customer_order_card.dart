@@ -76,9 +76,7 @@ class CustomerOrderCard extends StatelessWidget {
               ),
             ],
           ),
-
           const SizedBox(height: 20),
-
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,

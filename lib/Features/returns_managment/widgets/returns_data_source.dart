@@ -60,7 +60,6 @@ class RerturnsDataSource extends DataTableSource {
                     Text(
                       "View Image",
                       style: AppTextStyles.bodyS(context).copyWith(
-                        
                       ),
                     ),
                   ],

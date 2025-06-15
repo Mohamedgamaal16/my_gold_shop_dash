@@ -6,6 +6,7 @@ import 'package:my_gold_dashboard/Features/banner/screen/banner_screen.dart';
 import 'package:my_gold_dashboard/Features/complaints_management/screen/complaints_management_screen.dart';
 import 'package:my_gold_dashboard/Features/home/screens/home_screen.dart';
 import 'package:my_gold_dashboard/Features/order_management/screen/order_managment_screen.dart';
+import 'package:my_gold_dashboard/Features/returns_managment/screens/returns_management_screen.dart';
 import 'package:my_gold_dashboard/Features/settings/screen/serrings_screen.dart';
 import 'package:my_gold_dashboard/Features/sidebar/screen/sidebar_screen.dart';
 import 'package:my_gold_dashboard/core/routes/routes.dart';
@@ -305,7 +306,7 @@ final GoRouter router = GoRouter(
               name: "Return Management",
               path: Routes.returnManagement,
               builder:
-                  (context, state) => const Text("Return Management Screen"),
+                  (context, state) => const ReturnsManagementScreen(),
             ),
             GoRoute(
               name: "Return Details",

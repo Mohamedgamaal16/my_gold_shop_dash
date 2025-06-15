@@ -107,7 +107,7 @@ class ComplaintsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (complaints.isEmpty) {
-      return const EmptyWidget();
+      return const EmptyWidget(title: "لا يوجد شكاوي الان",subtitle: "",);
     }
 
     return ListView.builder(

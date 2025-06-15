@@ -52,10 +52,7 @@ class ComplaintCard extends StatelessWidget {
                             const TextSpan(text: ' / '),
                             TextSpan(
                               text: complaint.type,
-                              style: const TextStyle(
-                                color: Color(0xFF666666),
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style:  AppTextStyles.bodyM(context),
                             ),
                           ],
                         ),

@@ -3,7 +3,7 @@ import 'package:my_gold_dashboard/core/shared_widget/custom_text_field.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
 
-class ComplaintsHeader extends StatelessWidget {
+class ReturnHeader extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
   final List<String> statuses = [
     'All Status',
@@ -14,7 +14,7 @@ class ComplaintsHeader extends StatelessWidget {
   final String selectedStatus;
   final ValueChanged<String?> onStatusChanged;
 
-  ComplaintsHeader({
+  ReturnHeader({
     super.key,
     required this.selectedStatus,
     required this.onStatusChanged,
@@ -23,7 +23,7 @@ class ComplaintsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.colorsBackground,
+      color: AppColors.colorsSurface,
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [

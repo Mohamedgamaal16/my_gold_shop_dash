@@ -4,6 +4,7 @@ import '../widget/chart_platform_performance.dart';
 import '../widget/chart_sales_by_method.dart';
 import '../widget/chart_top_shops.dart';
 import '../widget/filter_header.dart';
+import '../widget/detailed/generate_detailed_report.dart';
 import '../widget/report_card_wrapper.dart';
 
 
@@ -76,6 +77,12 @@ class _ReportsBodyState extends State<ReportsBody> {
           ),
 
           const SizedBox(height: 40),
+          Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: GenerateDetailedReport(),
+              )),
         ],
       ),
     );

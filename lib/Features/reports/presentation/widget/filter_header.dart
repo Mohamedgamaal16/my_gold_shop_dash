@@ -47,6 +47,9 @@ class ReportsFilterHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(
+       height: MediaQuery.sizeOf(context).height * 0.15,
+       // width: MediaQuery.sizeOf(context).width * 0.9,
+       // height: 144,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -72,12 +75,12 @@ class ReportsFilterHeader extends StatelessWidget {
                   onDateSelected: onEndDateChanged,
                 ),
                 const SizedBox(width: 16),
-                _buildFixedDropdown(),
+                _buildFixedDropdown( context,),
               ],
             ),
             SizedBox(
-              height: 63,
-              width: 191,
+              height: MediaQuery.sizeOf(context).height * 0.07,
+              width: MediaQuery.sizeOf(context).width * 0.15,
               child: ElevatedButton.icon(
                 onPressed: onApplyFilter,
                 icon: const Icon(Icons.filter_alt, size: 18),
@@ -110,8 +113,8 @@ class ReportsFilterHeader extends StatelessWidget {
         InkWell(
           onTap: () => _pickDate(context, date, onDateSelected),
           child: Container(
-            height: 63,
-            width: 191,
+            height: MediaQuery.sizeOf(context).height * 0.07,
+            width: MediaQuery.sizeOf(context).width * 0.15,
             padding: const EdgeInsets.symmetric(horizontal: 23),
             decoration: BoxDecoration(
               border: Border.all(color: const Color(0xFFBDBDBD)),
@@ -132,15 +135,15 @@ class ReportsFilterHeader extends StatelessWidget {
     );
   }
 
-  Widget _buildFixedDropdown() {
+  Widget _buildFixedDropdown(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Report Type', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xFF0D2E2B))),
         const SizedBox(height: 8),
         Container(
-          height: 63,
-          width: 191,
+          height: MediaQuery.sizeOf(context).height * 0.07,
+          width: MediaQuery.sizeOf(context).width * 0.15,
           padding: const EdgeInsets.symmetric(horizontal: 23),
           decoration: BoxDecoration(
             border: Border.all(color: const Color(0xFFBDBDBD)),

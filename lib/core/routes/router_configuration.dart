@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_gold_dashboard/Features/auth/login/screen/login_screen.dart';
 import 'package:my_gold_dashboard/Features/auth/otp/otp_screen.dart';
@@ -16,7 +17,10 @@ import '../../Features/customer_managemen_details/presentation/customer_manageme
 import '../../Features/customer_management/presentation/screen/customer_management.dart';
 import '../../Features/customer_rating_review/presantation/screen/customer_rating_review.dart';
 import '../../Features/customer_rating_review/presantation/screen/customer_rating_review_body.dart';
+import '../../Features/merchant_management/presentation/screen/merchant_management_screen.dart';
 import '../../Features/payment_management/presantation/screen/payment_management.dart';
+import '../../Features/reports/presentation/cubit/reports_details_cubit.dart';
+import '../../Features/reports/presentation/screen/detailed_report_screen.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: Routes.login,
@@ -102,7 +106,8 @@ final GoRouter router = GoRouter(
               name: "Merchant Management",
               path: Routes.merchantManagement,
               builder:
-                  (context, state) => const Text("Merchant Management Screen"),
+                  (context, state) =>  MerchantManagementScreen(),
+                  //const Text("Merchant Management Screen"),
             ),
             GoRoute(
               name: "Add Merchant",
@@ -347,11 +352,16 @@ final GoRouter router = GoRouter(
             ),
             GoRoute(
               name: "Report Details",
-              path: '${Routes.reportDetails}/:reportId',
-              builder: (context, state) {
-                final reportId = state.pathParameters['reportId'];
-                return Text("Report Details: $reportId");
-              },
+              //path: '${Routes.reportDetails}/:reportId',
+              path: Routes.reportDetails,
+              builder: (context, state) => BlocProvider(
+                create: (context) => DetailedReportCubit(),
+                child: const DetailedReportScreen(),
+              ),
+              // builder: (context, state) {
+              //   final reportId = state.pathParameters['reportId'];
+              //   return Text("Report Details: $reportId");
+              // },
             ),
           ],
         ),

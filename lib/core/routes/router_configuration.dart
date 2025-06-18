@@ -6,6 +6,7 @@ import 'package:my_gold_dashboard/Features/auth/otp/otp_screen.dart';
 import 'package:my_gold_dashboard/Features/banner/screen/banner_screen.dart';
 import 'package:my_gold_dashboard/Features/complaints_management/screen/complaints_management_screen.dart';
 import 'package:my_gold_dashboard/Features/home/screens/home_screen.dart';
+import 'package:my_gold_dashboard/Features/merchant_management/merchant_details_screen/presentation/screens/merchant_detail_screen.dart';
 import 'package:my_gold_dashboard/Features/order_management/screen/order_managment_screen.dart';
 import 'package:my_gold_dashboard/Features/reports/presentation/screen/reports_screen.dart';
 import 'package:my_gold_dashboard/Features/returns_managment/screens/returns_management_screen.dart';
@@ -17,6 +18,9 @@ import '../../Features/customer_managemen_details/presentation/customer_manageme
 import '../../Features/customer_management/presentation/screen/customer_management.dart';
 import '../../Features/customer_rating_review/presantation/screen/customer_rating_review.dart';
 import '../../Features/customer_rating_review/presantation/screen/customer_rating_review_body.dart';
+import '../../Features/delivery_personnel/presantation/screen/delivery_personnel_screen.dart';
+import '../../Features/merchant_management/merchant_details_screen/presentation/model/mer_det_model.dart';
+import '../../Features/merchant_management/merchant_details_screen/presentation/screens/merchant_detail_body.dart';
 import '../../Features/merchant_management/presentation/screen/merchant_management_screen.dart';
 import '../../Features/payment_management/presantation/screen/payment_management.dart';
 import '../../Features/reports/presentation/cubit/reports_details_cubit.dart';
@@ -114,22 +118,24 @@ final GoRouter router = GoRouter(
               path: Routes.addMerchant,
               builder: (context, state) => const Text("Add Merchant Screen"),
             ),
+            // GoRoute(
+            //   name: "Edit Merchant",
+            //   path: '${Routes.editMerchant}/:merchantId',
+            //   builder: (context, state) {
+            //     final merchantId = state.pathParameters['merchantId'];
+            //     return Text("Edit Merchant: $merchantId");
+            //   },
+            // ),
             GoRoute(
               name: "Edit Merchant",
               path: '${Routes.editMerchant}/:merchantId',
               builder: (context, state) {
-                final merchantId = state.pathParameters['merchantId'];
-                return Text("Edit Merchant: $merchantId");
+                final merchantId = state.pathParameters['merchantId']!;
+                return MerchantDetailScreen(merchantId: merchantId);
               },
             ),
-            GoRoute(
-              name: "Merchant Details",
-              path: '${Routes.merchantDetails}/:merchantId',
-              builder: (context, state) {
-                final merchantId = state.pathParameters['merchantId'];
-                return Text("Merchant Details: $merchantId");
-              },
-            ),
+
+
           ],
         ),
 
@@ -141,7 +147,8 @@ final GoRouter router = GoRouter(
               name: "Delivery Personnel",
               path: Routes.deliveryPersonnel,
               builder:
-                  (context, state) => const Text("Delivery Personnel Screen"),
+                  (context, state) => DeliveryPersonnelScreen(),
+                  //const Text("Delivery Personnel Screen"),
             ),
             GoRoute(
               name: "Add Delivery Person",

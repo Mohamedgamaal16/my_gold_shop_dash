@@ -3,6 +3,8 @@ import 'package:my_gold_dashboard/Features/payment_management/presantation/scree
 import 'package:my_gold_dashboard/Features/payment_management/presantation/screen/widget/search_dropdown_filter.dart';
 import 'package:my_gold_dashboard/Features/payment_management/presantation/screen/widget/orders_table_widget.dart';
 
+import '../../../../core/styles/text_styles.dart';
+
 class PaymentManagementBody extends StatefulWidget {
   const PaymentManagementBody({super.key});
 
@@ -45,13 +47,11 @@ class _PaymentManagementBodyState extends State<PaymentManagementBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
+           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
             child: Text(
               'Finances',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w700,
+              style: AppTextStyles.heading3(context).copyWith(
                 color: Color(0xFF0D2E2B),
               ),
             ),

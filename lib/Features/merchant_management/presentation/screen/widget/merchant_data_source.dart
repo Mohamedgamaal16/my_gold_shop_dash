@@ -19,7 +19,12 @@ class MerchantDataSource extends DataTableSource {
   final void Function(MerchantModel)? onRemove;
 
   @override
+  @override
   DataRow? getRow(int index) {
+    if (index < 0 || index >= data.length) {
+      return const DataRow(cells: []); // يمنع الخطأ عند التنقل للصفحات الفارغة
+    }
+
     final merchant = data[index];
 
     return DataRow(

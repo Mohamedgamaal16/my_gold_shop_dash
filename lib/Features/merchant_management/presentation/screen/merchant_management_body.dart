@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_gold_dashboard/Features/merchant_management/presentation/screen/widget/merchan_table_test_in_costomer_table.dart';
 import 'package:my_gold_dashboard/Features/merchant_management/presentation/screen/widget/merchant_data_table.dart';
 import 'package:my_gold_dashboard/Features/merchant_management/presentation/screen/widget/search_dropdown_filter.dart';
 import 'package:my_gold_dashboard/Features/payment_management/presantation/screen/widget/search_dropdown_filter.dart';
+
+import '../../../customer_rating_review/presantation/widget/customer_rating_review_table.dart';
+import '../../merchant_details_screen/presentation/screens/merchant_detail_body.dart';
 
 class MerchantManagementBody extends StatefulWidget {
   const MerchantManagementBody({super.key});
@@ -63,7 +68,18 @@ class _MerchantManagementBodyState extends State<MerchantManagementBody> {
               },
               onFilterPressed: () {
                 // Logic to apply filter
-              },
+                // context.pushNamed(
+                //   "Edit Merchant",
+                //   pathParameters: {'merchantId': "ME-1029"},
+                //   extra: "ME-1029",
+                // );
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const MerchantDetailBody(merchantId: "ME-1029",),
+                  ),
+                );              },
             ),
 
 
@@ -88,7 +104,13 @@ class _MerchantManagementBodyState extends State<MerchantManagementBody> {
           //     ),
           //   ),
           // ),
-          MerchantTable()
+
+
+          //MerchantTable()
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: MerchanTableTestInCostomerTable(),
+          ),
         ],
       ),
     );

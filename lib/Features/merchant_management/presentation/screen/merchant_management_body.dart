@@ -5,8 +5,10 @@ import 'package:my_gold_dashboard/Features/merchant_management/presentation/scre
 import 'package:my_gold_dashboard/Features/merchant_management/presentation/screen/widget/search_dropdown_filter.dart';
 import 'package:my_gold_dashboard/Features/payment_management/presantation/screen/widget/search_dropdown_filter.dart';
 
+
 import '../../../customer_rating_review/presantation/widget/customer_rating_review_table.dart';
 import '../../merchant_details_screen/presentation/screens/merchant_detail_body.dart';
+
 
 class MerchantManagementBody extends StatefulWidget {
   const MerchantManagementBody({super.key});
@@ -80,6 +82,7 @@ class _MerchantManagementBodyState extends State<MerchantManagementBody> {
                     builder: (_) => const MerchantDetailBody(merchantId: "ME-1029",),
                   ),
                 );              },
+
             ),
 
 
@@ -111,6 +114,7 @@ class _MerchantManagementBodyState extends State<MerchantManagementBody> {
             padding: EdgeInsets.all(16.0),
             child: MerchanTableTestInCostomerTable(),
           ),
+
         ],
       ),
     );

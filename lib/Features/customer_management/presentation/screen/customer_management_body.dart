@@ -145,6 +145,7 @@ class _CustomerManagementBodyState extends State<CustomerManagementBody> {
                     builder: (_) => const CustomerManagementDetails(),
                   ),
                 );
+
               },
             ),
           ),

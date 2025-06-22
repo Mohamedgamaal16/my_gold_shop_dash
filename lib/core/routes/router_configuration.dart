@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_gold_dashboard/Features/auth/login/screen/login_screen.dart';
-import 'package:my_gold_dashboard/Features/auth/otp/otp_screen.dart';
+import 'package:my_gold_dashboard/Features/auth/otp/presentation/screen/otp_screen.dart';
 import 'package:my_gold_dashboard/Features/banner/screen/banner_screen.dart';
 import 'package:my_gold_dashboard/Features/complaints_management/screen/complaints_management_screen.dart';
 import 'package:my_gold_dashboard/Features/home/screens/home_screen.dart';
@@ -40,10 +40,12 @@ final GoRouter router = GoRouter(
     ),
 
     GoRoute(
-      name: "OTP",
       path: Routes.otp,
-      builder:
-          (context, state) => const OtpScreen(), // You'll need to create this
+      builder: (context, state) {
+        final data = state.extra as Map<String, dynamic>?;
+        final phone = data?['phone'] as String? ?? '';
+        return OtpScreen(phone: phone);
+      },
     ),
     // Shell route with sidebar
     StatefulShellRoute.indexedStack(

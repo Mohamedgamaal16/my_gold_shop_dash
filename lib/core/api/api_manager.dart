@@ -5,6 +5,9 @@ import 'package:my_gold_dashboard/Features/auth/login/data/model/login_parameter
 import 'package:my_gold_dashboard/Features/auth/login/data/model/LoginResponse.dart';
 import 'package:my_gold_dashboard/Features/auth/otp/data/model/OtpResponse.dart';
 import 'package:my_gold_dashboard/Features/auth/otp/data/model/otp_parameters.dart';
+import '../../Features/customer_managemen_details/data/model/CustomerManagementDetailsResponse.dart';
+import '../../Features/customer_management/data/model/CustomerManagementResponse.dart';
+import '../../Features/returns_managment/data/model/ReturnManagementResponse.dart';
 import '../error/Failures.dart';
 import '../resources/constants_manager.dart';
 import 'api_result.dart';
@@ -188,4 +191,116 @@ class ApiManager {
       );
     }
   }
+
+
+  Future<ApiResult<CustomerManagementResponse>> customerManagement() async {
+    if (!await _isConnected()) {
+      return ApiErrorResult(
+        failures: NetworkFailure('تحقق من اتصالك بالإنترنت'),
+      );
+    }
+
+    try {
+      final response = await getRequest(
+        AppConstants.customerManagementEndPoint,
+
+      );
+
+      if (response != null && response.statusCode != null) {
+        if (response.statusCode! >= 200 && response.statusCode! < 300) {
+          return ApiSuccessResult(
+            data: CustomerManagementResponse.fromJson(response.data),
+          );
+        } else {
+          return ApiErrorResult(
+            failures: ServerFailure('Error: ${response.statusCode}'),
+          );
+        }
+      } else {
+        return ApiErrorResult(
+          failures: ServerFailure('No response from server'),
+        );
+      }
+    } on DioException catch (e) {
+      return ApiErrorResult(
+        failures: NetworkFailure(e.message ?? 'Network error occurred'),
+      );
+    }
+  }
+
+
+
+
+
+  Future<ApiResult<CustomerManagementDetailsResponse>> customerManagementDetails(String customerId ) async {
+    if (!await _isConnected()) {
+      return ApiErrorResult(
+        failures: NetworkFailure('تحقق من اتصالك بالإنترنت'),
+      );
+    }
+
+    try {
+      final response = await getRequest(
+        "${AppConstants.customerManagementDetEndPoint+customerId}",
+
+      );
+
+      if (response != null && response.statusCode != null) {
+        if (response.statusCode! >= 200 && response.statusCode! < 300) {
+          return ApiSuccessResult(
+            data: CustomerManagementDetailsResponse.fromJson(response.data),
+          );
+        } else {
+          return ApiErrorResult(
+            failures: ServerFailure('Error: ${response.statusCode}'),
+          );
+        }
+      } else {
+        return ApiErrorResult(
+          failures: ServerFailure('No response from server'),
+        );
+      }
+    } on DioException catch (e) {
+      return ApiErrorResult(
+        failures: NetworkFailure(e.message ?? 'Network error occurred'),
+      );
+    }
+  }
+
+
+  Future<ApiResult<ReturnManagementResponse>> returnManagement() async {
+    if (!await _isConnected()) {
+      return ApiErrorResult(
+        failures: NetworkFailure('تحقق من اتصالك بالإنترنت'),
+      );
+    }
+
+    try {
+      final response = await getRequest(
+        AppConstants.customerManagementEndPoint,
+
+      );
+
+      if (response != null && response.statusCode != null) {
+        if (response.statusCode! >= 200 && response.statusCode! < 300) {
+          return ApiSuccessResult(
+            data: ReturnManagementResponse.fromJson(response.data),
+          );
+        } else {
+          return ApiErrorResult(
+            failures: ServerFailure('Error: ${response.statusCode}'),
+          );
+        }
+      } else {
+        return ApiErrorResult(
+          failures: ServerFailure('No response from server'),
+        );
+      }
+    } on DioException catch (e) {
+      return ApiErrorResult(
+        failures: NetworkFailure(e.message ?? 'Network error occurred'),
+      );
+    }
+  }
+
 }

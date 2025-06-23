@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/model/return_model.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
+
+import '../../data/model/return_model.dart';
 
 class ReturnDetailsCard extends StatelessWidget {
   final ReturnModel returnModel;

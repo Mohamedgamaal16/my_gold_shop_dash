@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_gold_dashboard/Features/order_management/order/order_model.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/model/return_model.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
+
+import '../../Features/returns_managment/data/model/return_model.dart';
 
 
 List<Widget> buildPageNumbers(int totalPages, int currentPage, void Function(int) goToPage) {

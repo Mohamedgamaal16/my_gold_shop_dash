@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/model/return_model.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/screens/return_detailes_screen.dart';
 import 'package:my_gold_dashboard/core/shared_widget/caches_image.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
+
+import '../../../data/model/return_model.dart';
+import '../return_detailes_screen.dart';
 
 class RerturnsDataSource extends DataTableSource {
   RerturnsDataSource(
@@ -159,16 +160,16 @@ class RerturnsDataSource extends DataTableSource {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child:
-                    
+
                     CachedImage(imageUrl: imagePath, onPressed: (onPressed){}, fit: BoxFit.cover
-                    
+
                     ,width: MediaQuery.sizeOf(context).width * 0.4,
                     height: MediaQuery.sizeOf(context).height * 0.4,
-                    
+
 
                     )
-                    
-                   
+
+
                   ),
                 ),
               ),
@@ -199,14 +200,14 @@ class RerturnsDataSource extends DataTableSource {
   }
 
   void _navigateToDetailsPage(BuildContext context, ReturnModel returnModel) {
-   
-    
+
+
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ReturnDetailsPage(returnModel: returnModel,),
       ),
     );
-    
+
   }
 
   @override

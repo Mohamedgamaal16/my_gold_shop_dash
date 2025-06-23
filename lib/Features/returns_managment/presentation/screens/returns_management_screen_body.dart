@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/widgets/returns_table.dart';
+import 'package:my_gold_dashboard/Features/returns_managment/presentation/screens/widgets/returns_table.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
 
-import '../../payment_management/presantation/screen/widget/search_dropdown_filter.dart';
+import '../../../payment_management/presantation/screen/widget/search_dropdown_filter.dart';
+
 
 class ReturnsManagementScreenBody extends StatelessWidget {
   const ReturnsManagementScreenBody({super.key});

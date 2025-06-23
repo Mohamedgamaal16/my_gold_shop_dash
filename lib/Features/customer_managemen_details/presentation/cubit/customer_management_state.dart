@@ -1,0 +1,14 @@
+import 'package:my_gold_dashboard/Features/customer_managemen_details/data/model/CustomerManagementDetailsResponse.dart';
+
+abstract class CustomerManagementDetailsState{}
+
+class CustomerManagementDetailsInitState extends CustomerManagementDetailsState{}
+class CustomerManagementDetailsLoadingState extends CustomerManagementDetailsState{}
+class CustomerManagementDetailsSuccessState extends CustomerManagementDetailsState{
+  CustomerManagementDetailsResponse customerManagementDetailsResponse;
+  CustomerManagementDetailsSuccessState({required this.customerManagementDetailsResponse});
+}
+class CustomerManagementDetailsErrorState extends CustomerManagementDetailsState{
+  String message;
+  CustomerManagementDetailsErrorState({required this.message});
+}

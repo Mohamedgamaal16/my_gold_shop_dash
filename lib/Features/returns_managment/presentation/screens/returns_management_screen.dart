@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/screens/returns_management_screen_body.dart';
+import 'package:my_gold_dashboard/Features/returns_managment/presentation/screens/returns_management_screen_body.dart';
 
 class ReturnsManagementScreen extends StatelessWidget {
   const ReturnsManagementScreen({super.key});

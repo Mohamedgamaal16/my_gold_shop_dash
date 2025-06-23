@@ -9,7 +9,6 @@ import 'package:my_gold_dashboard/Features/home/screens/home_screen.dart';
 import 'package:my_gold_dashboard/Features/merchant_management/merchant_details_screen/presentation/screens/merchant_detail_screen.dart';
 import 'package:my_gold_dashboard/Features/order_management/screen/order_managment_screen.dart';
 import 'package:my_gold_dashboard/Features/reports/presentation/screen/reports_screen.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/screens/returns_management_screen.dart';
 import 'package:my_gold_dashboard/Features/settings/screen/serrings_screen.dart';
 import 'package:my_gold_dashboard/Features/sidebar/screen/sidebar_screen.dart';
 import 'package:my_gold_dashboard/core/routes/routes.dart';
@@ -26,6 +25,7 @@ import '../../Features/merchant_management/presentation/screen/merchant_manageme
 import '../../Features/payment_management/presantation/screen/payment_management.dart';
 import '../../Features/reports/presentation/cubit/reports_details_cubit.dart';
 import '../../Features/reports/presentation/screen/detailed_report_screen.dart';
+import '../../Features/returns_managment/presentation/screens/returns_management_screen.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: Routes.login,
@@ -229,7 +229,7 @@ final GoRouter router = GoRouter(
               path: '${Routes.customerManagement}/:customerId',
               builder: (context, state) {
                 final customerId = state.pathParameters['customerId'];
-                return CustomerManagementDetails();
+                return CustomerManagementDetails(customerId: customerId ?? '',);
                 //return Text("Customer Details: $customerId");
               },
             ),

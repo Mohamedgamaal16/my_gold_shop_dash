@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_gold_dashboard/Features/order_management/widgets/order_managment_table_source.dart';
 import 'package:my_gold_dashboard/Features/order_management/widgets/order_table_footer.dart';
-import 'package:my_gold_dashboard/Features/returns_managment/widgets/returns_data_source.dart';
+import 'package:my_gold_dashboard/Features/returns_managment/presentation/screens/widgets/returns_data_source.dart';
 import 'package:my_gold_dashboard/core/service/table_page_number.dart';
 import 'package:my_gold_dashboard/core/shared_widget/generic_tables.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
@@ -17,7 +17,7 @@ class _OrdersTableState extends State<ReturnsTable> {
   final int _rowsPerPage = 6;
   int _currentPage = 0;
 
-  final ScrollController _horizontalScrollController = ScrollController(); 
+  final ScrollController _horizontalScrollController = ScrollController();
 
   @override
   void dispose() {
@@ -76,7 +76,7 @@ class _OrdersTableState extends State<ReturnsTable> {
               radius: const Radius.circular(0),
               thickness: 10,
               child: SingleChildScrollView(
-                controller: _horizontalScrollController, 
+                controller: _horizontalScrollController,
                 scrollDirection: Axis.horizontal,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(

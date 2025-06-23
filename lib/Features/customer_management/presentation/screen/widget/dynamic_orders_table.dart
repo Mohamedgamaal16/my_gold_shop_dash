@@ -1,7 +1,6 @@
-// dynamic_orders_table.dart
-
 import 'package:flutter/material.dart';
 import 'package:data_table_2/data_table_2.dart';
+import 'package:my_gold_dashboard/core/styles/text_styles.dart';
 
 class DynamicOrdersTable extends StatelessWidget {
   final List<Map<String, dynamic>> rowData;
@@ -35,39 +34,33 @@ class DynamicOrdersTable extends StatelessWidget {
     return [];
   }
 
-  List<DataColumn2> _buildColumns(List<String> columns) {
-    return columns.map((name) {
-      return DataColumn2(
+  List<DataColumn2> _buildColumns(BuildContext context, List<String> columns) {
+    return columns
+        .map(
+          (name) => DataColumn2(
         label: Center(
           child: Text(
             name,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
+            style: AppTextStyles.heading5(context),
           ),
         ),
-      );
-    }).toList();
+      ),
+    )
+        .toList();
   }
 
-  List<DataRow2> _buildRows(List<String> columns) {
+  List<DataRow2> _buildRows(BuildContext context, List<String> columns) {
     return rowData.map((dataRow) {
       final cells = columns.map((col) {
         if (col == 'Order History') {
           return DataCell(
             Center(
               child: GestureDetector(
-                onTap: () {
-                  if (onViewPressed != null) {
-                    onViewPressed!(dataRow);
-                  }
-                },
-                child: const Text(
+                onTap: () => onViewPressed?.call(dataRow),
+                child: Text(
                   'VIEW',
-                  style: TextStyle(
-                    color: Color(0xFF0D2E2B),
+                  style: AppTextStyles.heading6(context).copyWith(
+                   // color: const Color(0xFF0D2E2B),
                     decoration: TextDecoration.underline,
                   ),
                 ),
@@ -75,16 +68,22 @@ class DynamicOrdersTable extends StatelessWidget {
             ),
           );
         }
-        return DataCell(Center(child: Text('${dataRow[col] ?? ''}')));
+        return DataCell(
+          Center(
+            child: Text(
+              '${dataRow[col] ?? ''}',
+              style: AppTextStyles.heading6(context),
+            ),
+          ),
+        );
       }).toList();
-
       return DataRow2(cells: cells);
     }).toList();
   }
 
   double _calculateHeight(int rowsCount) {
-    final hasHeader = true;
-    return tableHeight ?? (headerHeight * (hasHeader ? 1 : 0) + rowHeight * rowsCount + 20);
+    return tableHeight ??
+        (headerHeight + rowHeight * rowsCount + 20);
   }
 
   @override
@@ -96,13 +95,14 @@ class DynamicOrdersTable extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: DataTable2(
-          columns: _buildColumns(columns),
-          rows: _buildRows(columns),
+          columns: _buildColumns(context, columns),
+          rows: _buildRows(context, columns),
           columnSpacing: 12,
           horizontalMargin: 8,
           headingRowHeight: headerHeight,
           dataRowHeight: rowHeight,
-          headingRowColor: WidgetStateProperty.all<Color>(headerColor!),
+          headingRowColor:
+          WidgetStateProperty.all<Color>(headerColor!),
           dataRowColor: WidgetStateProperty.all<Color>(rowColor!),
           border: TableBorder.symmetric(
             inside: const BorderSide(color: Color(0xFFE0E0E0), width: 1),
@@ -111,9 +111,9 @@ class DynamicOrdersTable extends StatelessWidget {
               width: showOuterBorder ? 1 : 0,
             ),
           ),
-          headingTextStyle: const TextStyle(
+          headingTextStyle: AppTextStyles.heading5(context).copyWith(
             color: Colors.white,
-            fontWeight: FontWeight.w600,
+fontWeight: FontWeight.w600
           ),
           showBottomBorder: true,
         ),

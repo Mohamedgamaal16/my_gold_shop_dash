@@ -194,7 +194,7 @@ class DeleveryDataSource extends DataTableSource {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: AppColors.trafficLightColorsError.withOpacity(0.1),
+                    color: AppColors.trafficLightColorsError.withValues(alpha: 0.1),
                     border: Border.all(color: AppColors.trafficLightColorsError),
                     borderRadius: BorderRadius.circular(0),
                   ),
@@ -229,7 +229,7 @@ class DeleveryDataSource extends DataTableSource {
   Color _getStatusColor(String status) {
     switch (status.toLowerCase()) {
       case 'active':
-        return AppColors.trafficLightColorsSuccess.withOpacity(0.15);
+        return AppColors.trafficLightColorsSuccess.withValues(alpha: 0.15);
       case 'inactive':
         return Colors.orange.shade50;
       case 'suspended':

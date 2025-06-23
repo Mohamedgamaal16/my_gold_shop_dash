@@ -1,0 +1,213 @@
+[33mcommit 3bfdc6eee387e60b05ce382a3ed868fb54e2a90c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;32mlogin-api-manager[m[33m)[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Thu Jun 19 16:40:26 2025 +0300
+
+    + login login-api-manager
+
+[33mcommit 49d44ccd4bf2ae8e484fb8fbca42c419131d141d[m[33m ([m[1;31morigin/dev[m[33m)[m
+Merge: c44dc5d 94831be
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Wed Jun 18 17:14:09 2025 +0300
+
+    Merge branch 'main' into dev
+
+[33mcommit c44dc5da4cee892bb97cc949c0d22264f0db54f3[m
+Merge: 0a1ad78 6d5a7c1
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Wed Jun 18 16:51:18 2025 +0300
+
+    Merge pull request #14 from Mohamedgamaal16/Customer-Rating-Review
+    
+    Customer rating review
+
+[33mcommit 6d5a7c12c58b7a1215630692e57cb420a4da9611[m[33m ([m[1;31morigin/Customer-Rating-Review[m[33m, [m[1;32mCustomer-Rating-Review[m[33m)[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Wed Jun 18 16:50:32 2025 +0300
+
+    + Merchant Management det
+    + Delivery Management N C
+
+[33mcommit bc9e10a5c8480a19849efbdd0cba8dba71890479[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Wed Jun 18 16:46:28 2025 +0300
+
+    + Merchant Management det
+    + Delivery Management N C
+
+[33mcommit 94831be62e31ea020edd930a2b14b956780b3dad[m
+Merge: e442383 950da2d
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Mon Jun 16 16:59:19 2025 +0300
+
+    Merge pull request #13 from Mohamedgamaal16/Customer-Rating-Review
+    
+    + Merchant Management Not complete
+
+[33mcommit 950da2d5447ef2b0cc8fe8791981dff4a7d2a85b[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Mon Jun 16 16:58:42 2025 +0300
+
+    + Merchant Management Not complete
+    + Reports fin
+
+[33mcommit e442383ed54689f16fb002c17c961c8647d31ae6[m
+Merge: 3e5b03d 0a1ad78
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Sun Jun 15 17:02:19 2025 +0300
+
+    Merge pull request #12 from Mohamedgamaal16/dev
+    
+    Dev
+
+[33mcommit 0a1ad7897f65440df6b404ad77b83b8eb7d18be1[m
+Merge: 55df588 d635aed
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Sun Jun 15 17:01:34 2025 +0300
+
+    Merge pull request #11 from Mohamedgamaal16/Customer-Rating-Review
+    
+    + reports screen Not complete
+    + Customer Rating Review screen
+
+[33mcommit d635aedf62467189e3dd3cf2e55b5520842deebf[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Sun Jun 15 16:58:27 2025 +0300
+
+    + reports screen Not complete
+    + Customer Rating Review screen
+
+[33mcommit 3e5b03d78dfe1c2732b6c488249416c369807f61[m
+Merge: c1fa2c0 55df588
+Author: Mohamed Gamal <80966334+Mohamedgamaal16@users.noreply.github.com>
+Date:   Sun Jun 15 11:19:00 2025 +0300
+
+    Merge pull request #10 from Mohamedgamaal16/dev
+    
+    Returns UI
+
+[33mcommit 55df5881fd8729bc40bc29c9a02b9c6bb62da16c[m
+Merge: fc7ca67 7f63689
+Author: Mohamed Gamal <80966334+Mohamedgamaal16@users.noreply.github.com>
+Date:   Sun Jun 15 11:18:32 2025 +0300
+
+    Merge pull request #9 from Mohamedgamaal16/returns
+    
+    return done
+
+[33mcommit 7f63689907c916cd59ae6f871cef13fe402f2f34[m[33m ([m[1;31morigin/returns[m[33m)[m
+Author: Mohamedgamaal16 <mahooomar@yahoo.com>
+Date:   Sun Jun 15 11:17:17 2025 +0300
+
+    return done
+
+[33mcommit c1fa2c0c161f01bb57cf490fcca6fb5f76fbe933[m
+Merge: 7794d80 fc7ca67
+Author: Mohamed Gamal <80966334+Mohamedgamaal16@users.noreply.github.com>
+Date:   Sat Jun 14 15:17:36 2025 +0300
+
+    Merge pull request #8 from Mohamedgamaal16/compliment management
+    
+    compliment management done
+
+[33mcommit fc7ca67485bddc57ff6c3aa6b2369c37ef631ff9[m
+Merge: fc0dffd 093f9eb
+Author: Mohamed Gamal <80966334+Mohamedgamaal16@users.noreply.github.com>
+Date:   Sat Jun 14 15:16:29 2025 +0300
+
+    Merge pull request #7 from Mohamedgamaal16/complientManagment
+    
+    Complient managment
+
+[33mcommit 093f9eb84a1f7167b1dc79fd169b9f4366ef0673[m[33m ([m[1;31morigin/complientManagment[m[33m)[m
+Author: Mohamedgamaal16 <mahooomar@yahoo.com>
+Date:   Sat Jun 14 15:14:58 2025 +0300
+
+    complaimnet managment done
+
+[33mcommit 7794d80c01e7e569ead772f6efb9bdf2fe011b7b[m
+Merge: 9fa3ebe fc0dffd
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Thu Jun 12 16:26:55 2025 +0300
+
+    Merge pull request #5 from Mohamedgamaal16/dev
+    
+    Dev
+
+[33mcommit fc0dffd465034c66d7843452de42b9c632d8317b[m
+Merge: acca317 42bb11d
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Thu Jun 12 16:26:11 2025 +0300
+
+    Merge pull request #4 from Mohamedgamaal16/mahmoud
+    
+    + Complaints Management
+
+[33mcommit 42bb11d6ca8985327a9d26dd394fce6cdba0d03b[m[33m ([m[1;31morigin/mahmoud[m[33m, [m[1;32mmahmoud[m[33m)[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Thu Jun 12 16:24:29 2025 +0300
+
+    + Complaints Management
+    + Complaints Management details
+
+[33mcommit 9fa3ebeeb0fff171d50ed8a6a462e3768364d8a2[m
+Merge: 8792700 acca317
+Author: Mohamed Gamal <80966334+Mohamedgamaal16@users.noreply.github.com>
+Date:   Thu Jun 12 15:42:39 2025 +0300
+
+    Merge pull request #3 from Mohamedgamaal16/dev
+    
+    Dev
+
+[33mcommit acca31757cffbc0dec28fbc09e2304c98445aace[m
+Merge: f8162a1 0b2b48c
+Author: Mohamed Gamal <80966334+Mohamedgamaal16@users.noreply.github.com>
+Date:   Thu Jun 12 15:41:47 2025 +0300
+
+    Merge pull request #2 from Mohamedgamaal16/order-managment-done
+    
+    Order managment done
+
+[33mcommit 0b2b48cfc1c17e60f41f0b1c17f41efa36665699[m[33m ([m[1;31morigin/order-managment-done[m[33m)[m
+Author: Mohamedgamaal16 <mahooomar@yahoo.com>
+Date:   Thu Jun 12 15:40:36 2025 +0300
+
+    fix bugs - order managment done
+
+[33mcommit 8792700df73982aea4557e91375ed6da514b676f[m
+Merge: 0449601 f8162a1
+Author: Mahmoud nagi <167598000+mahmoudnagi22@users.noreply.github.com>
+Date:   Tue Jun 10 17:01:44 2025 +0300
+
+    Merge pull request #1 from Mohamedgamaal16/dev
+    
+    + New dev
+
+[33mcommit f8162a1ab93a630bc40f661c5136bee7521221b9[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Tue Jun 10 17:01:12 2025 +0300
+
+    + New dev
+
+[33mcommit 04496018bec2c21e63c90dff04240c8165f80eb0[m
+Author: mahmoudnagi22 <mahmoud0nagi@gmail.com>
+Date:   Tue Jun 10 16:57:24 2025 +0300
+
+    + payment management screen
+
+[33mcommit d67f0d5c785f1a27ac74ff4087a584a09f776f06[m
+Author: Mohamedgamaal16 <mahooomar@yahoo.com>
+Date:   Mon Jun 2 21:05:18 2025 +0300
+
+    banner and settings
+
+[33mcommit aab0c8f4d307605d0fa37ff717ea72b7ba74be95[m
+Author: Mohamedgamaal16 <mahooomar@yahoo.com>
+Date:   Thu May 29 17:35:16 2025 +0300
+
+    init app- auth - home
+
+[33mcommit 0366aa474670b24530d48360c58da27425dab694[m
+Author: Mohamedgamaal16 <mahooomar@yahoo.com>
+Date:   Thu May 29 17:32:58 2025 +0300
+
+    first commit

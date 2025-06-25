@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_gold_dashboard/Features/complaints_management/widgets/live_dots_indicator.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
+
+import 'live_dots_indicator.dart';
 
 class DashboardHeader extends StatelessWidget {
   final int totalComplaints;

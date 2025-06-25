@@ -1,82 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:my_gold_dashboard/Features/order_management/widgets/order_managment_table_source.dart';
-import 'package:my_gold_dashboard/Features/order_management/widgets/order_table_footer.dart';
+import 'package:my_gold_dashboard/Features/returns_managment/data/model/ReturnData.dart';
 import 'package:my_gold_dashboard/Features/returns_managment/presentation/screens/widgets/returns_data_source.dart';
 import 'package:my_gold_dashboard/core/service/table_page_number.dart';
 import 'package:my_gold_dashboard/core/shared_widget/generic_tables.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
+import '../../../../order_management/widgets/order_table_footer.dart';
+import '../return_detailes_screen.dart';
 
 class ReturnsTable extends StatefulWidget {
-  const ReturnsTable({super.key});
+  const ReturnsTable({super.key, required this.rows});
+
+  final List<ReturnData> rows;
 
   @override
-  State<ReturnsTable> createState() => _OrdersTableState();
+  State<ReturnsTable> createState() => _ReturnsTableState();
 }
 
-class _OrdersTableState extends State<ReturnsTable> {
-  final int _rowsPerPage = 6;
-  int _currentPage = 0;
+class _ReturnsTableState extends State<ReturnsTable> {
+  static const _rowsPerPage = 10;
+  int _page = 0;
+  final _hCtrl = ScrollController();
 
-  final ScrollController _horizontalScrollController = ScrollController();
+  int get _maxPage =>
+      (widget.rows.length / _rowsPerPage).ceil().clamp(1, 9999) - 1;
 
   @override
   void dispose() {
-    _horizontalScrollController.dispose();
+    _hCtrl.dispose();
     super.dispose();
-  }
-
-  void _previousPage() {
-    if (_currentPage > 0) {
-      setState(() {
-        _currentPage--;
-      });
-    }
-  }
-
-  void _nextPage() {
-    if ((_currentPage + 1) * _rowsPerPage < orders.length) {
-      setState(() {
-        _currentPage++;
-      });
-    }
-  }
-
-  void _goToPage(int page) {
-    setState(() {
-      _currentPage = page;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final int totalOrders = returnList.length;
-    final int startIndex = _currentPage * _rowsPerPage;
-    final int endIndex =
-        ((startIndex + _rowsPerPage) > totalOrders)
-            ? totalOrders
-            : (startIndex + _rowsPerPage);
-    final paginatedOrders = returnList.sublist(startIndex, endIndex);
+    final start = _page * _rowsPerPage;
+    final end = (start + _rowsPerPage).clamp(0, widget.rows.length);
+    final pageRows = widget.rows.sublist(start, end);
 
     return Column(
       children: [
-        SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.5,
-          width: MediaQuery.sizeOf(context).width,
+        Expanded(
           child: ScrollbarTheme(
             data: ScrollbarThemeData(
-              crossAxisMargin:  4,
-              thumbColor: WidgetStateProperty.all(AppColors.texturesHeadersTexture),
-              trackColor: WidgetStateProperty.all(AppColors.greyScaleLightGrey),
+              crossAxisMargin: 4,
+              thumbColor:
+              WidgetStateProperty.all(AppColors.texturesHeadersTexture),
+              trackColor:
+              WidgetStateProperty.all(AppColors.greyScaleLightGrey),
             ),
             child: Scrollbar(
-              controller: _horizontalScrollController,
+              controller: _hCtrl,
               thumbVisibility: true,
               trackVisibility: true,
               interactive: true,
               radius: const Radius.circular(0),
               thickness: 10,
               child: SingleChildScrollView(
-                controller: _horizontalScrollController,
+                controller: _hCtrl,
                 scrollDirection: Axis.horizontal,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
@@ -85,7 +64,7 @@ class _OrdersTableState extends State<ReturnsTable> {
                   ),
                   child: GenericDataTable(
                     columns: const [
-                      "Return ID",
+                      'Return ID',
                       'Order ID',
                       'Customer Name',
                       'Reason',
@@ -95,54 +74,44 @@ class _OrdersTableState extends State<ReturnsTable> {
                       'Status',
                       'Actions',
                     ],
-                    source: RerturnsDataSource(
+                    rowsPerPage: _rowsPerPage,
+                    width: 1200,
+                    source: ReturnsDataSource(
                       context,
-                      paginatedOrders,
-                      onAccept: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Order accepted'),
-                            backgroundColor: AppColors.trafficLightColorsSuccess,
-                          ),
-                        );
-                      },
-                      onRefuse: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Order refused'),
-                            backgroundColor: AppColors.trafficLightColorsError,
+                      pageRows,
+                      onViewDetails: (item) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ReturnDetailsPage(item: item),
                           ),
                         );
                       },
                     ),
-                    rowsPerPage: _rowsPerPage,
-                    width: 1200,
                   ),
                 ),
               ),
             ),
           ),
         ),
-
-        SizedBox(height: 20,),
-        if (totalOrders > _rowsPerPage)
+        if (widget.rows.length > _rowsPerPage)
           PaginationFooter(
-            startIndex: startIndex,
-            endIndex: endIndex,
-            rowCount: totalOrders,
-            currentPage: _currentPage,
-            totalPages: (totalOrders / _rowsPerPage).ceil(),
-            onPreviousPage: _previousPage,
-            onNextPage: _nextPage,
+            startIndex: start,
+            endIndex: end,
+            rowCount: widget.rows.length,
+            currentPage: _page,
+            totalPages: _maxPage + 1,
+            onPreviousPage: () =>
+                setState(() => _page = (_page - 1).clamp(0, _maxPage)),
+            onNextPage: () =>
+                setState(() => _page = (_page + 1).clamp(0, _maxPage)),
             buildPageNumbers: () => buildPageNumbers(
-              (totalOrders / _rowsPerPage).ceil(),
-              _currentPage,
-              _goToPage,
+              _maxPage + 1,
+              _page,
+                  (p) => setState(() => _page = p),
             ),
           ),
       ],
     );
   }
 }
-
-

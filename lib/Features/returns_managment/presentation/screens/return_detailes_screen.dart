@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:my_gold_dashboard/Features/returns_managment/data/model/ReturnData.dart';
 import 'package:my_gold_dashboard/core/styles/colors.dart';
 import 'package:my_gold_dashboard/core/styles/text_styles.dart';
 
 import '../../data/model/return_model.dart';
 
+import 'package:flutter/material.dart';
+import 'package:my_gold_dashboard/core/styles/colors.dart';
+import 'package:my_gold_dashboard/core/styles/text_styles.dart';
+import 'package:my_gold_dashboard/Features/returns_managment/data/model/ReturnData.dart';
+
 class ReturnDetailsCard extends StatelessWidget {
-  final ReturnModel returnModel;
+  final ReturnData item;
   final VoidCallback? onApprove;
   final VoidCallback? onReject;
 
   const ReturnDetailsCard({
     super.key,
-    required this.returnModel,
+    required this.item,
     this.onApprove,
     this.onReject,
   });
@@ -25,7 +31,6 @@ class ReturnDetailsCard extends StatelessWidget {
         color: AppColors.colorsBackground,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: AppColors.colorsSecondary2, width: 1),
-       
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,120 +38,73 @@ class ReturnDetailsCard extends StatelessWidget {
           // First Row
           Row(
             children: [
-              Expanded(
-                child: _buildInfoItem("Customer Name:", returnModel.customerName,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Customer ID:", returnModel.customerId,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Order ID:", returnModel.orderId,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Return ID:", returnModel.returnId,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Received Date:", returnModel.receivedDate,context),
-              ),
+              Expanded(child: _buildInfoItem("Customer Name:", item.name ?? '-', context)),
+            //  Expanded(child: _buildInfoItem("Customer ID:", item.customerId ?? '-', context)),
+              Expanded(child: _buildInfoItem("Order ID:", 'ORD-${item.orderCode}', context)),
+              Expanded(child: _buildInfoItem("Return ID:", 'RET-${item.returnCode}', context)),
+             // Expanded(child: _buildInfoItem("Received Date:", item.receivedDate ?? '-', context)),
             ],
           ),
           const SizedBox(height: 16),
-          
+
           // Second Row
           Row(
             children: [
-              Expanded(
-                child: _buildInfoItem("Merchant Name:", returnModel.merchant,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Product:", returnModel.product,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Refund Date:", returnModel.refundDate,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Delivery Name:", returnModel.deliveryName,context),
-              ),
-              Expanded(
-                child: _buildInfoItem("Payment Method:", returnModel.paymentMethod,context),
-              ),
+              Expanded(child: _buildInfoItem("Merchant Name:", item.merchantName ?? '-', context)),
+              // Expanded(child: _buildInfoItem("Product:", item.productName ?? '-', context)),
+              // Expanded(child: _buildInfoItem("Refund Date:", item.refundDate ?? '-', context)),
+              // Expanded(child: _buildInfoItem("Delivery Name:", item.deliveryName ?? '-', context)),
+              // Expanded(child: _buildInfoItem("Payment Method:", item.paymentMethod ?? '-', context)),
             ],
           ),
           const SizedBox(height: 16),
-          
+
           // Third Row
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Reason section (takes more space)
               Expanded(
                 flex: 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Reason:",
-                      style: AppTextStyles.bodyM(context).copyWith(fontWeight: FontWeight.bold),
-                    ),
+                    Text("Reason:",
+                        style: AppTextStyles.bodyM(context).copyWith(fontWeight: FontWeight.bold)),
                     const SizedBox(height: 4),
-                    Text(
-                      returnModel.reason,
-                      style: AppTextStyles.bodyS(context),
-                    ),
+                    Text(item.reason ?? '-', style: AppTextStyles.bodyS(context)),
                   ],
                 ),
               ),
               const SizedBox(width: 24),
-              
-              // Refund Status
-              Expanded(
-                child: _buildInfoItem("Refund Status:", returnModel.refundStatus,context),
-              ),
+             // Expanded(child: _buildInfoItem("Refund Status:", item.refundStatus ?? '-', context)),
               const SizedBox(width: 24),
-              
-              // Order Image
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Order Image",
-                                        style: AppTextStyles.bodyL(context).copyWith(fontWeight: FontWeight.bold),
-
-                  ),
+                  Text("Order Image",
+                      style: AppTextStyles.bodyL(context).copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   GestureDetector(
-                    onTap: () => _showImageDialog(context, returnModel.orderPic),
+                    onTap: () => _showImageDialog(context, item.orderPic ?? ''),
                     child: Container(
                       width: 80,
                       height: 80,
-                      decoration: BoxDecoration(
-                        color: AppColors.colorsPrimary2,
-                           
-                      ),
+                      decoration: BoxDecoration(color: AppColors.colorsPrimary2),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.network(
-                          returnModel.orderPic,
+                          item.orderPic ?? '',
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Container(
-                              color: AppColors.colorsPrimary2,
-                              child: const Icon(
-                                Icons.image,
-                                color:AppColors.colorsSurface,
-                                size: 32,
-                              ),
-                            );
-                          },
+                          errorBuilder: (context, error, stackTrace) => Container(
+                            color: AppColors.colorsPrimary2,
+                            child: const Icon(Icons.image, color: AppColors.colorsSurface, size: 32),
+                          ),
                           loadingBuilder: (context, child, loadingProgress) {
                             if (loadingProgress == null) return child;
                             return Container(
                               color: AppColors.colorsPrimary2,
                               child: const Center(
-                                child: CircularProgressIndicator(
-                                  color:AppColors.colorsSurface,
-                                  strokeWidth: 2,
-                                ),
+                                child: CircularProgressIndicator(color: AppColors.colorsSurface),
                               ),
                             );
                           },
@@ -159,7 +117,7 @@ class ReturnDetailsCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          
+
           // Action Buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -168,23 +126,18 @@ class ReturnDetailsCard extends StatelessWidget {
                 onPressed: onApprove,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.colorsPrimary2,
-                  foregroundColor:AppColors.colorsSurface,
+                  foregroundColor: AppColors.colorsSurface,
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   elevation: 2,
                 ),
-                child:  Text(
-                  "Approve",
-                  style: AppTextStyles.buttonM(context),
-                ),
+                child: Text("Approve", style: AppTextStyles.buttonM(context)),
               ),
               const SizedBox(width: 12),
               ElevatedButton(
                 onPressed: onReject,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:AppColors.colorsSurface,
+                  backgroundColor: AppColors.colorsSurface,
                   foregroundColor: const Color(0xFFD32F2F),
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   shape: RoundedRectangleBorder(
@@ -192,11 +145,7 @@ class ReturnDetailsCard extends StatelessWidget {
                   ),
                   elevation: 1,
                 ),
-                child:  Text(
-                  "Reject",
-                                   style: AppTextStyles.buttonM(context),
-
-                ),
+                child: Text("Reject", style: AppTextStyles.buttonM(context)),
               ),
             ],
           ),
@@ -209,16 +158,9 @@ class ReturnDetailsCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: AppTextStyles.bodyM(context).copyWith(fontWeight: FontWeight.bold),
-        ),
+        Text(label, style: AppTextStyles.bodyM(context).copyWith(fontWeight: FontWeight.bold)),
         const SizedBox(height: 4),
-        Text(
-          value,
-                    style: AppTextStyles.bodyS(context),
-
-        ),
+        Text(value, style: AppTextStyles.bodyS(context)),
       ],
     );
   }
@@ -242,45 +184,10 @@ class ReturnDetailsCard extends StatelessWidget {
                     child: Image.network(
                       imagePath,
                       fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          padding: const EdgeInsets.all(40),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.error_outline,
-                                size: 64,
-                                color: Colors.grey.shade600,
-                              ),
-                              const SizedBox(height: 16),
-                              Text(
-                                'Failed to load image',
-                                style: TextStyle(
-                                  color: Colors.grey.shade600,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
+                      errorBuilder: (context, error, stackTrace) => const Icon(Icons.error_outline),
                       loadingBuilder: (context, child, loadingProgress) {
                         if (loadingProgress == null) return child;
-                        return Container(
-                          padding: const EdgeInsets.all(40),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                        );
+                        return const Center(child: CircularProgressIndicator());
                       },
                     ),
                   ),
@@ -297,11 +204,7 @@ class ReturnDetailsCard extends StatelessWidget {
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    child: const Icon(
-                      Icons.close,
-                      color:AppColors.colorsSurface,
-                      size: 24,
-                    ),
+                    child: const Icon(Icons.close, color: AppColors.colorsSurface, size: 24),
                   ),
                 ),
               ),
@@ -318,43 +221,48 @@ class ReturnDetailsCard extends StatelessWidget {
 
 
 class ReturnDetailsPage extends StatelessWidget {
-  final ReturnModel? returnModel;
+  final ReturnData item;
 
-  const ReturnDetailsPage({super.key, this.returnModel});
+  const ReturnDetailsPage({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: AppColors.colorsBackground,
       appBar: AppBar(
-        title:  Text("Return Details",style: AppTextStyles.heading3(context),),
+        title: Text("Return Details", style: AppTextStyles.heading3(context)),
         backgroundColor: AppColors.colorsBackground,
         foregroundColor: AppColors.greyScaleAlmostBlack,
         elevation: 1,
       ),
       body: SingleChildScrollView(
-        child: ReturnDetailsCard(
-          returnModel: returnModel!,
-          onApprove: () {
-            // Handle approve action
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Return ${returnModel!.returnId} approved successfully!"),
-                backgroundColor: Colors.green,
-              ),
-            );
-          },
-          onReject: () {
-            // Handle reject action
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Return ${returnModel!.returnId} rejected!"),
-                backgroundColor: Colors.red,
-              ),
-            );
-          },
+        child: Column(
+          children: [
+            Text("Return ID: ${item.id}"),
+            Text("Order ID: ${item.orderCode}"),
+            Text("Reason: ${item.reason ?? '-'}"),
+            Text("Customer: ${item.name ?? '-'}"),
+            Text("Merchant: ${item.merchantName ?? '-'}"),
+            ReturnDetailsCard(
+              item: item,
+              onApprove: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("Return ${item.returnCode} approved successfully!"),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              },
+              onReject: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("Return ${item.returnCode} rejected!"),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

@@ -8,6 +8,8 @@ class AppConstants {
   static const String customerManagementEndPoint = 'get-users';
   static const String customerManagementDetEndPoint = 'get-user-order/';
   static const String returnManagementEndPoint = 'get-returns';
+  static const String complaintsManagementEndPoint = 'get-complain';
+  static const String customerRatingReviewEndPoint = 'get-Reviews';
 
 
 

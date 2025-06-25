@@ -24,7 +24,7 @@ class ReturnManagementCubit extends Cubit<ReturnManagementState>{
       case ApiSuccessResult<ReturnManagementResponse>():
        emit(ReturnManagementSuccessState(returnManagementResponse: response.data));
        log('returnData length = ${response.data.returnData?.length}');
-       log('ReturnManagementSuccessState ===> = ${response.data.returnData}');
+       log('ReturnManagementSuccessState ===> = ${response.data.message}');
       case ApiErrorResult<ReturnManagementResponse>():
         emit(ReturnManagementErrorState(message: response.failures.message));
 
